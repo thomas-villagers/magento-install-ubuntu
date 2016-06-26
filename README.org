@@ -87,8 +87,8 @@ case $yn in
   test ! -e $sample_store && echo "sample store archive $sample_store not found." && exit 1
   echo "Install sample store ...";
   unzip $sample_store -d $dir
-  cp -au $dir/magento-sample-data*/skin magento
-  cp -au $dir/magento-sample-data*/media magento 
+  cp -au $dir/magento-sample-data*/skin $dir/magento
+  cp -au $dir/magento-sample-data*/media $dir/magento 
   echo "Insert sample data into database $database_name (enter SQL root pass)" 
   mysql -u root -p $database_name < $dir/magento-sample-data*/magento_sample_data_*.sql
   ;; 
