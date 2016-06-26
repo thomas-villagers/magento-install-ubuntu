@@ -96,14 +96,15 @@ esac
 
 read -p "Enter name for store webroot: " store_name 
 
-echo "Move magento folder to $store_name" 
-mv $dir/magento /var/www/html/$store_name 
+web_root=/var/www/html
+echo "Move magento folder to $web_root/$store_name" 
+mv $dir/magento $web_root/$store_name 
 rm -r $dir 
 
 echo "Set permissions for $store_name" 
-chown -R www-data /var/www/html/$store_name 
-find /var/www/html/$store_name  -type d -exec chmod 700 {} \;
-find /var/www/html/$store_name  -type f -exec chmod 600 {} \;
+chown -R www-data  $web_root/$store_name 
+find $web_root/$store_name  -type d -exec chmod 700 {} \;
+find $web_root/$store_name  -type f -exec chmod 600 {} \;
 echo "Done. Open localhost/$store_name in browser and proceed installation script" 
 #+END_SRC
 
