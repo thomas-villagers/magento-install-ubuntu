@@ -3,7 +3,7 @@ echo "Install Magento on Apache Webroot."
 echo "Please run as sudo" 
 
 if [ $# -eq 0 ]; then 
-  echo "Usage: install-magento.sh <path to Magento zip archive)>"
+  echo "Usage: install-magento.sh <path to Magento zip archive>"
   exit 1
 fi 
 magento_archive="$1" 
@@ -21,9 +21,9 @@ mysql -u root -p -e "create database $database_name;"
 read -p "Do you want to install the sample store? (y/n)? " yn
 case $yn in 
   [yY]* )
-  echo "Install sample store ...";
   read -e -p "Path to sample store zip archive: " sample_store
   test ! -e $sample_store && echo "sample store archive $sample_store not found." && exit 1
+  echo "Install sample store ...";
   mkdir sampledata 
   unzip $sample_store -d sampledata 
   cp -au sampledata/magento-sample-data*/skin magento
