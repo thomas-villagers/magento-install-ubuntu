@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Install and configure Magento prerequisites on Ubuntu systems."
 echo "Please run as sudo" 
 echo "Install openssh-server"
