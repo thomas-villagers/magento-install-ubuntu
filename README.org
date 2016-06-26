@@ -100,7 +100,6 @@ read -p "Enter name for store webroot: " store_name
 echo "Move magento folder to $store_name" 
 mv magento /var/www/html/$store_name 
 
-
 echo "Set permissions for $store_name" 
 chown -R www-data /var/www/html/$store_name 
 find /var/www/html/$store_name  -type d -exec chmod 700 {} \;
@@ -110,9 +109,14 @@ echo "Done. Open localhost/$store_name in browser and proceed installation scrip
 
 ** Usage 
 
+You will need:
+- the magento zip archive (i. e. "magento-1.9.2.4-2016-02-23-06-03-22.zip")
+- (optionally) the sample data archive (i. e. "magento-sample-data-1.9.1.0-2015-02-11-07-23.24.zip") 
+
 Make the script executable and run as sudo: 
 #+BEGIN_SRC sh 
 cd scripts 
 chmod +x install-magento.sh
 sudo ./install-magento.sh <path to your magento zip archive> 
 #+END_SRC
+

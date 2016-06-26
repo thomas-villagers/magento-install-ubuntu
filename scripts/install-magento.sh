@@ -39,7 +39,6 @@ read -p "Enter name for store webroot: " store_name
 echo "Move magento folder to $store_name" 
 mv magento /var/www/html/$store_name 
 
-
 echo "Set permissions for $store_name" 
 chown -R www-data /var/www/html/$store_name 
 find /var/www/html/$store_name  -type d -exec chmod 700 {} \;
