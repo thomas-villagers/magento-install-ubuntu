@@ -44,4 +44,6 @@ echo "Set permissions for $store_name"
 chown -R www-data  $web_root/$store_name 
 find $web_root/$store_name  -type d -exec chmod 700 {} \;
 find $web_root/$store_name  -type f -exec chmod 600 {} \;
-echo "Done. Open localhost/$store_name in browser and proceed installation script"
+
+current_ip=`ip r | tail -1 | rev | cut -d' ' -f2 | rev`
+echo "Done. Open $current_ip/$store_name in browser and proceed installation script"
